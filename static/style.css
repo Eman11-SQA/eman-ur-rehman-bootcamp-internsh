@@ -1,0 +1,266 @@
+/* ---------------- Body and Container ---------------- */
+body {
+    font-family: Arial, sans-serif; 
+     background-color: #f7f7f7; 
+    margin: 0;
+    padding: 0;
+     color: #333; 
+}
+/* ---------------- Navbar ---------------- */
+/* Navbar styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #444;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.nav-left, .nav-center, .nav-right {
+    display: flex;
+    
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-title {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.nav-center .nav-search input[type="text"] {
+    padding: 5px 8px;
+    margin: auto;
+   border-radius: 4px;
+    border: none;
+    width: 250px;
+}
+
+.nav-center .nav-search button {
+  
+    padding: 6px 12px;
+    margin-left: 5px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.nav-center .nav-search button:hover {
+    background-color: #218838;
+}
+
+.nav-right button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.nav-right button:hover {
+    background-color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* ---------------- Headings ---------------- */
+h2 {
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 2em;
+    text-align: center;
+    color: #333;
+}
+
+/* ---------------- Tables ---------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th {
+    background-color: #444;
+    color: white;
+    padding: 12px 10px;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 3px solid #222;
+}
+
+tbody td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Status column styling */
+tbody td:nth-last-child(2) {
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}
+
+/* ---------------- Status Colors ---------------- */
+.status-admitted {
+    background-color: #28a745; /* Green */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.status-discharged {
+    background-color: #dc3545; /* Red */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* ---------------- Buttons ---------------- */
+button, input[type="submit"] {
+    padding: 8px 14px;
+    margin: 2px;
+    border: 1px solid #aaaaaa;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-weight: 600;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Button group for links */
+.button-group {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.button-group a button {
+    font-weight: 600;
+}
+
+/* ---------------- Flash Messages ---------------- */
+.flash {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* ---------------- Form Inputs ---------------- */
+input[type="text"], input[type="password"], input[type="number"], input[type="search"] {
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Forms styling */
+form {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Submit buttons */
+form input[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+/* ---------------- Pagination ---------------- */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination .btn {
+    padding: 6px 12px;
+    margin: 0 5px;
+    text-decoration: none;
+    background-color: black;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: white;
+    display: inline-block;
+}
+
+.pagination .btn:hover {
+    background-color: #444;
+    color: white;
+}
+
+/* ---------------- Additional Styling for All Pages ---------------- */
+body.login-page .container {
+    margin: 80px auto;
+    padding: 30px;
+}
+
+.button-group a {
+    text-decoration: none;
+}

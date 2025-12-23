@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Patient</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Edit Patient</h2>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div id="flash-messages-container">
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+        <script>
+          setTimeout(function() {
+            var flashContainer = document.getElementById('flash-messages-container');
+            if(flashContainer){ flashContainer.style.display='none'; }
+          }, 5000);
+        </script>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/edit/{{ patient[0] }}">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="{{ patient[1] }}" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" value="{{ patient[2] }}" required>
+
+        <label for="disease">Disease</label>
+        <input type="text" id="disease" name="disease" value="{{ patient[3] }}" required>
+
+        <label for="contact">Contact</label>
+        <input type="text" id="contact" name="contact" value="{{ patient[4] }}" required>
+
+        <input type="submit" value="Update Patient">
+    </form>
+</div>
+</body>
+</html>

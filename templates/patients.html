@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+
+    <!-- Navbar -->
+    <!-- Navbar -->
+<nav class="navbar">
+    <div class="nav-left">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Hospital Logo" class="logo">
+        <span class="nav-title">Patient Management System</span>
+    </div>
+
+    <div class="nav-center">
+        <form method="get" class="nav-search">
+            <div id="search-container" style="display:flex;gap:10px;"> 
+                <input id="search-field" type="text" name="search" style="flex:1;padding:12px 12px;" placeholder="Search by ID, Contact, or Date" value="{{ search }}">
+                <button id="search-button" style="flex:1;padding:8px 4px;" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="nav-right">
+        <a href="/add"><button>Add Patient</button></a>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+</nav>
+
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div id="flash-messages-container">
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+        <script>
+          setTimeout(function() {
+            var flashContainer = document.getElementById('flash-messages-container');
+            if(flashContainer){ flashContainer.style.display='none'; }
+          }, 5000);
+        </script>
+      {% endif %}
+    {% endwith %}
+
+    <!-- Patients Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Patient-ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Disease</th>
+                <th>Contact</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for patient in patients %}
+            <tr>
+                <td>{{ patient[1] }}</td>
+                <td>{{ patient[2] }}</td>
+                <td>{{ patient[3] }}</td>
+                <td>{{ patient[4] }}</td>
+                <td>{{ patient[5] }}</td>
+                <td class="{% if patient[6]|lower == 'admitted' %}status-admitted{% elif patient[6]|lower == 'discharged' %}status-discharged{% endif %}">
+                    {{ patient[6] }}
+                </td>
+                <td>
+                    <a href="/edit/{{ patient[0] }}"><button>Edit</button></a>
+                    <a href="/delete/{{ patient[0] }}"><button>Delete</button></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('patients', page=page-1, search_id=search_id, search_contact=search_contact, search_date=search_date) }}" class="btn">Previous</a>
+        {% endif %}
+        <span>Page {{ page }} of {{ total_pages }}</span>
+        {% if page < total_pages %}
+            <a href="{{ url_for('patients', page=page+1, search_id=search_id, search_contact=search_contact, search_date=search_date) }}" class="btn">Next</a>
+        {% endif %}
+    </div>
+
+</div>
+</body>
+</html>
